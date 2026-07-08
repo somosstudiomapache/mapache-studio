@@ -6,7 +6,6 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 type Plan = {
   nombre: string;
-  precio: string;
   incluye: string[];
   sirve: string;
   ideal: string;
@@ -35,7 +34,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Presencia Gastronómica",
-        precio: "Desde S/. 490 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -51,7 +49,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Antojo Constante",
-        precio: "Desde S/. 790 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -67,7 +64,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Marca que Antoja",
-        precio: "Desde S/. 1,150 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -95,7 +91,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Estilo Base",
-        precio: "Desde S/. 520 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -110,7 +105,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Glamour Activo",
-        precio: "Desde S/. 850 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -125,7 +119,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Belleza Dominante",
-        precio: "Desde S/. 1,250 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -153,7 +146,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Presencia Profesional",
-        precio: "Desde S/. 650 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -168,7 +160,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Clínica Conectada",
-        precio: "Desde S/. 1,100 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -183,7 +174,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Autoridad Total",
-        precio: "Desde S/. 1,600 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -211,7 +201,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Rutina Base",
-        precio: "Desde S/. 490 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -226,7 +215,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Fuerza Activa",
-        precio: "Desde S/. 790 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -241,7 +229,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Transformación Épica",
-        precio: "Desde S/. 1,150 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -269,7 +256,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Estilo Esencial",
-        precio: "Desde S/. 450 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -284,7 +270,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Showroom Activo",
-        precio: "Desde S/. 720 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -299,7 +284,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Tendencia Total",
-        precio: "Desde S/. 990 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -327,7 +311,6 @@ const rubros: Rubro[] = [
     planes: [
       {
         nombre: "Fiebre de Fin de Semana",
-        precio: "Desde S/. 550 / mes",
         incluye: [
           "4 reels verticales editados",
           "10 fotos editadas",
@@ -342,7 +325,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Club Activo",
-        precio: "Desde S/. 950 / mes",
         incluye: [
           "8 reels verticales editados",
           "20 fotos editadas",
@@ -357,7 +339,6 @@ const rubros: Rubro[] = [
       },
       {
         nombre: "Imperio Nocturno",
-        precio: "Desde S/. 1,350 / mes",
         incluye: [
           "12 reels verticales editados",
           "35 a 40 fotos editadas",
@@ -418,7 +399,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </h3>
 
       <p className="mt-4 inline-flex w-fit rounded-full bg-[#ff5a00] px-5 py-2 text-sm font-black uppercase text-white">
-        {plan.precio}
+        Cotización personalizada
       </p>
 
       <div className="mt-7">
@@ -459,13 +440,13 @@ function PlanCard({ plan }: { plan: Plan }) {
 
       <a
         href={`https://wa.me/51971731985?text=${encodeURIComponent(
-          `Hola, quiero cotizar el paquete ${plan.nombre} de Mapache Studio.`
+          `Hola, quiero solicitar una cotización para el paquete ${plan.nombre} de Mapache Studio.`
         )}`}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-8 inline-flex w-fit rounded-full bg-black px-6 py-3 text-sm font-black uppercase text-white transition group-hover:bg-[#ff5a00]"
       >
-        Cotizar
+        Solicitar cotización
       </a>
     </article>
   );
@@ -647,20 +628,20 @@ export default function PaquetesPage() {
         </div>
 
         <a
-  href="https://wa.me/51971731985"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="WhatsApp Mapache Studio"
-  className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition hover:scale-110 hover:bg-[#1ebe5d]"
->
-  <Image
-    src="/assets/redes/whattsapp.svg"
-    alt="WhatsApp"
-    width={28}
-    height={28}
-    className="object-contain"
-  />
-</a>
+          href="https://wa.me/51971731985"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Mapache Studio"
+          className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition hover:scale-110 hover:bg-black"
+        >
+          <Image
+            src="/assets/redes/whattsapp.svg"
+            alt="WhatsApp"
+            width={30}
+            height={30}
+            className="object-contain"
+          />
+        </a>
       </section>
 
       <section className="bg-black px-6 py-20 text-white">
@@ -790,7 +771,7 @@ export default function PaquetesPage() {
             </a>
 
             <a
-              href="https://www.instagram.com/somos.mapachestudio/"
+              href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full border border-white/30 px-9 py-4 text-sm font-black uppercase text-white transition hover:scale-105 hover:bg-white hover:text-black"
