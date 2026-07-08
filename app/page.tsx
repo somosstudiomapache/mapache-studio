@@ -485,7 +485,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/somos.mapachestudio/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full border border-white/30 px-9 py-4 text-sm font-black uppercase text-white transition hover:scale-105 hover:bg-white hover:text-black"

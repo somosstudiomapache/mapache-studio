@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 type Plan = {
   nombre: string;
@@ -474,6 +474,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 export default function PaquetesPage() {
   const [menuHidden, setMenuHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const lastScroll = useRef(0);
 
   useEffect(() => {
@@ -498,6 +499,15 @@ export default function PaquetesPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+    const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+
+    setMouse({ x, y });
+  };
+
   return (
     <main className="overflow-x-hidden bg-white text-black">
       <header
@@ -512,6 +522,7 @@ export default function PaquetesPage() {
                 src="/assets/isotipo.svg"
                 alt="Mapache Studio"
                 fill
+                sizes="48px"
                 className="object-contain"
                 priority
               />
@@ -559,7 +570,10 @@ export default function PaquetesPage() {
         </nav>
       </header>
 
-      <section className="relative overflow-hidden bg-[#ff5a00] px-6 pb-28 pt-40">
+      <section
+        onMouseMove={handleMouseMove}
+        className="relative overflow-hidden bg-[#ff5a00] px-6 pb-28 pt-40"
+      >
         <div className="absolute inset-0 opacity-30">
           <div className="absolute -left-24 top-10 h-[520px] w-[260px] rotate-[22deg] rounded-full bg-white/20" />
           <div className="absolute left-[38%] top-[-60px] h-[520px] w-[260px] rotate-[22deg] rounded-full bg-black/10" />
@@ -572,7 +586,12 @@ export default function PaquetesPage() {
         </h1>
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
-          <div>
+          <div
+            style={{
+              transform: `translate(${mouse.x * -28}px, ${mouse.y * -28}px)`,
+            }}
+            className="relative z-20 transition-transform duration-150 ease-out"
+          >
             <p className="mb-6 inline-flex rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-wide text-black shadow-lg md:text-sm">
               Cotización por rubro
             </p>
@@ -602,17 +621,26 @@ export default function PaquetesPage() {
             </div>
           </div>
 
-          <div className="relative hidden min-h-[520px] items-center justify-center md:flex">
-            <div className="relative h-[500px] w-[500px] lg:h-[620px] lg:w-[620px]">
-              <div className="absolute right-8 top-20 h-28 w-28 rounded-full bg-black lg:h-32 lg:w-32" />
-              <div className="absolute bottom-24 left-20 h-28 w-28 rounded-full bg-white lg:h-32 lg:w-32" />
+          <div className="relative z-10 hidden min-h-[560px] items-center justify-center overflow-visible md:flex">
+            <div
+              style={{
+                transform: `translate(${mouse.x * 85}px, ${
+                  mouse.y * 85
+                }px) rotate(${mouse.x * 8}deg)`,
+              }}
+              className="relative h-[560px] w-[560px] overflow-visible transition-transform duration-150 ease-out lg:h-[700px] lg:w-[700px]"
+            >
+              <div className="absolute right-16 top-24 h-28 w-28 rounded-full bg-black lg:h-32 lg:w-32" />
+              <div className="absolute bottom-28 left-24 h-28 w-28 rounded-full bg-white lg:h-32 lg:w-32" />
 
               <Image
                 src="/assets/mapaches/mapache-paquetes.png"
                 alt="Mapache paquetes"
                 fill
+                sizes="(max-width: 768px) 0px, 700px"
                 className="object-contain drop-shadow-2xl"
                 priority
+                unoptimized
               />
             </div>
           </div>
@@ -699,7 +727,9 @@ export default function PaquetesPage() {
                   src={rubro.imagen}
                   alt={rubro.titulo}
                   fill
+                  sizes="(max-width: 768px) 260px, 320px"
                   className="object-contain drop-shadow-2xl"
+                  unoptimized
                 />
               </div>
             </div>
@@ -722,7 +752,9 @@ export default function PaquetesPage() {
             src="/assets/mapaches/mapache-footer.png"
             alt="Mapache asomándose de Mapache Studio"
             fill
+            sizes="(max-width: 768px) 300px, 420px"
             className="object-contain drop-shadow-2xl"
+            unoptimized
           />
         </div>
 
@@ -751,7 +783,7 @@ export default function PaquetesPage() {
             </a>
 
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/somos.mapachestudio/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full border border-white/30 px-9 py-4 text-sm font-black uppercase text-white transition hover:scale-105 hover:bg-white hover:text-black"
