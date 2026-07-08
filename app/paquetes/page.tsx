@@ -398,10 +398,6 @@ function PlanCard({ plan }: { plan: Plan }) {
         {plan.nombre}
       </h3>
 
-      <p className="mt-4 inline-flex w-fit rounded-full bg-[#ff5a00] px-5 py-2 text-sm font-black uppercase text-white">
-        Cotización personalizada
-      </p>
-
       <div className="mt-7">
         <p className="text-sm font-black uppercase tracking-[0.2em] text-black/50 transition group-hover:text-white/50">
           Incluye
