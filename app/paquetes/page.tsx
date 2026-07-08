@@ -646,7 +646,7 @@ export default function PaquetesPage() {
           </div>
         </div>
 
-<a
+        <a
   href="https://wa.me/51971731985"
   target="_blank"
   rel="noopener noreferrer"
@@ -661,6 +661,7 @@ export default function PaquetesPage() {
     className="object-contain"
   />
 </a>
+      </section>
 
       <section className="bg-black px-6 py-20 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
