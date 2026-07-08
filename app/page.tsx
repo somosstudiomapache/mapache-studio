@@ -288,13 +288,14 @@ export default function Home() {
               <div className="absolute right-8 top-20 h-28 w-28 rounded-full bg-black lg:h-32 lg:w-32" />
               <div className="absolute bottom-20 left-16 h-28 w-28 rounded-full bg-white lg:h-32 lg:w-32" />
 
-              <Image
-                src="/assets/mapache-leyendo.png"
-                alt="Mapache leyendo de Mapache Studio"
-                fill
-                className="object-contain drop-shadow-2xl"
-                priority
-              />
+<Image
+  src="/assets/mapaches/mapache-leyendo.png"
+  alt="Mapache leyendo de Mapache Studio"
+  fill
+  sizes="(max-width: 768px) 0px, 660px"
+  className="object-contain drop-shadow-2xl"
+  priority
+/>
             </div>
           </div>
         </div>
