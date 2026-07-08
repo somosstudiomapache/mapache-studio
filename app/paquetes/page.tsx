@@ -646,15 +646,21 @@ export default function PaquetesPage() {
           </div>
         </div>
 
-        <a
-          href="https://wa.me/51971731985"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-black text-lg font-black text-white shadow-xl transition hover:scale-110 hover:bg-[#25D366]"
-        >
-          W
-        </a>
-      </section>
+<a
+  href="https://wa.me/51971731985"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp Mapache Studio"
+  className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-xl transition hover:scale-110 hover:bg-[#1ebe5d]"
+>
+  <Image
+    src="/assets/redes/whattsapp.svg"
+    alt="WhatsApp"
+    width={28}
+    height={28}
+    className="object-contain"
+  />
+</a>
 
       <section className="bg-black px-6 py-20 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
